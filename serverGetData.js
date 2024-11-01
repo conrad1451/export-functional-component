@@ -83,7 +83,8 @@ app.get('/sendcomponent', (req, res) => {
   const jsonString = JSON.stringify(componentConfig);
 
   
-  res.send(jsonString);
+  // res.send(jsonString);
+  res.json(componentConfig);
   // res.send(jsonString);
 
   // res.send('Hello from Express!');
