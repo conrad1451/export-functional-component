@@ -67,4 +67,27 @@ app.get("/pages", async (req, res) => {
   res.json(pages);
 });
 
+app.get('/sendcomponent', (req, res) => {
+
+  // Sending side
+  // import MyComponent from './MyComponent';
+
+  const componentConfig = {
+  type: 'MyComponent',
+  props: {
+      title: 'Hello World',
+      data: [1, 2, 3]
+  }
+  };
+
+  const jsonString = JSON.stringify(componentConfig);
+
+  
+  res.send(jsonString);
+  // res.send(jsonString);
+
+  // res.send('Hello from Express!');
+
+});
+
 app.listen(port, console.log(`Server started on ${port}`));
