@@ -14,6 +14,8 @@ const port = 8000;
 
 const app = express();
 
+const initData = [1, 2, 3, 4, 5];
+
 // CHQ: already declared earlier
 // const express = require("express");
 // const app = express();
@@ -76,7 +78,82 @@ app.get('/sendcomponent', (req, res) => {
   type: 'MyComponent',
   props: {
       title: 'Hello World',
-      data: [1, 2, 3]
+      // data: [1, 2, 3]
+      data: [...initData]
+  }
+  };
+
+  const jsonString = JSON.stringify(componentConfig);
+
+  
+  // res.send(jsonString);
+  res.json(componentConfig);
+  // res.send(jsonString);
+
+  // res.send('Hello from Express!');
+
+});
+
+app.get('/evenArray', (req, res) => {
+
+  // Sending side
+  // import MyComponent from './MyComponent';
+
+  const componentConfig = {
+  type: 'MyComponent',
+  props: {
+      title: 'Hello World',
+      // data: [1, 2, 3]
+      data: [...initData].map(num => num * 2)
+  }
+  };
+
+  const jsonString = JSON.stringify(componentConfig);
+
+  
+  // res.send(jsonString);
+  res.json(componentConfig);
+  // res.send(jsonString);
+
+  // res.send('Hello from Express!');
+
+});
+
+app.get('/squareArray', (req, res) => {
+
+  // Sending side
+  // import MyComponent from './MyComponent';
+
+  const componentConfig = {
+  type: 'MyComponent',
+  props: {
+    title: 'Hello World',
+    // data: [1, 2, 3]
+    data: [...initData].map(num => num * num)
+  }
+  };
+
+  const jsonString = JSON.stringify(componentConfig);
+
+  
+  // res.send(jsonString);
+  res.json(componentConfig);
+  // res.send(jsonString);
+
+  // res.send('Hello from Express!');
+
+});
+app.get('/cubedArray', (req, res) => {
+
+  // Sending side
+  // import MyComponent from './MyComponent';
+
+  const componentConfig = {
+  type: 'MyComponent',
+  props: {
+    title: 'Hello World',
+    // data: [1, 2, 3]
+    data: [...initData].map(num => num * num * num)
   }
   };
 
